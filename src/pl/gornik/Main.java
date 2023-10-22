@@ -4,6 +4,7 @@ import pl.gornik.product.Product;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
@@ -69,6 +70,22 @@ public class Main {
         System.out.println("---------");
         for(Product product : products){
             product.displayProduct();
+        }
+
+        System.out.println("-----------Produkty o nazwie rozpoczynającej sie od liter wpisanych od użytkownika--------------------");
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Podaj pierwszą literę:");
+        String userChoice1 = scanner.nextLine();
+        int ascii1 = userChoice1.toUpperCase().charAt(0);
+
+        System.out.println("Podaj drugą literę:");
+        String userChoice2 = scanner.nextLine();
+        int ascii2 = userChoice2.toUpperCase().charAt(0);
+
+        for(Product product : products){
+            if(product.getName().toUpperCase().charAt(0) > ascii1 && product.getName().toUpperCase().charAt(0) < ascii2){
+                System.out.println(product);
+            }
         }
 
 
